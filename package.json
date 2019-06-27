@@ -2,9 +2,11 @@
   "name": "footing",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "NODE_ENV=test jest",
+    "build-index": "node scripts/buildIndex.js",
+    "build": "npm run build-index && tsc"
   },
   "repository": {
     "type": "git",
