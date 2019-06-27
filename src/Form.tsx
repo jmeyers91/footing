@@ -1,14 +1,19 @@
-import React, { FormEvent, ComponentProps } from 'react';
+import React, { FormEvent, ComponentProps, useCallback } from 'react';
 import styled from 'styled-components';
 
 export function Form(props: ComponentProps<'form'>) {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const { onSubmit } = props;
-    if (onSubmit) {
-      onSubmit(event);
-    }
-  }
+  const { onSubmit } = props;
+
+  const handleSubmit = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const { onSubmit } = props;
+      if (onSubmit) {
+        onSubmit(event);
+      }
+    },
+    [onSubmit]
+  );
 
   return <form {...props} onSubmit={handleSubmit} />;
 }
