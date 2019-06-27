@@ -46,6 +46,7 @@ export default styled(Overlay)<Props>`
   top: 0;
   overflow-x: hidden;
   overflow-y: auto;
+
   ${props => {
     const backgroundColor = props.color || defaultColor;
     return props.fixed

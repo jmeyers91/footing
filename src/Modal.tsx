@@ -17,19 +17,31 @@ function Modal(props: Props) {
   }
 
   return (
-    <Overlay fixed onClick={handleOverlayClick}>
+    <StyledOverlay fixed onClick={handleOverlayClick}>
       <Window {...rest} />
-    </Overlay>
+    </StyledOverlay>
   );
 }
 
 export default styled(Modal)``;
 
+const StyledOverlay = styled(Overlay)`
+  &:before {
+    content: '';
+    flex-shrink: 0;
+    height: 10vh;
+  }
+
+  &:after {
+    content: '';
+    flex-shrink: 0;
+    height: 10vh;
+  }
+`;
+
 const Window = styled(Column)`
   align-self: center;
   background-color: white;
-  margin-bottom: 10%;
-  margin-top: 10%;
   max-width: 90%;
   min-height: 50px;
   min-width: 300px;
