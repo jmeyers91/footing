@@ -5,10 +5,11 @@ import Column from './Column';
 
 export interface Props extends ComponentProps<typeof Column> {
   onOverlayClick?(event: MouseEvent<HTMLDivElement>): any;
+  fixed?: boolean;
 }
 
 function Modal(props: Props) {
-  const { onOverlayClick, ...rest } = props;
+  const { onOverlayClick, fixed = true, ...rest } = props;
 
   function handleOverlayClick(event: MouseEvent<HTMLDivElement>) {
     if (onOverlayClick && isOverlay(event.target as HTMLElement)) {
@@ -17,7 +18,7 @@ function Modal(props: Props) {
   }
 
   return (
-    <StyledOverlay fixed onClick={handleOverlayClick}>
+    <StyledOverlay fixed={fixed} onClick={handleOverlayClick}>
       <Window {...rest} />
     </StyledOverlay>
   );

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Should match snapshot 1`] = `
+<div
+  class="sc-bwzfXH sc-bxivhb RmNrQ sc-bdVaJa eUEwfn"
+  data-overlay="true"
+>
+  <div
+    class="sc-bdVaJa sc-htpNat KtFsv sc-ifAKCX ljCUnr"
+  />
+</div>
+`;
