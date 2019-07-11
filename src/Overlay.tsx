@@ -4,12 +4,6 @@ import styled, { css } from 'styled-components';
 import Column from './Column';
 
 const defaultColor = 'rgba(255, 255, 255, 0.7)';
-const overlayRootEl = document.createElement('div');
-overlayRootEl.style.position = 'absolute';
-overlayRootEl.style.left = '0';
-overlayRootEl.style.top = '0';
-overlayRootEl.style.zIndex = '1000';
-document.body.appendChild(overlayRootEl);
 
 export interface Props extends ComponentProps<typeof Column> {
   /**
@@ -18,18 +12,23 @@ export interface Props extends ComponentProps<typeof Column> {
   fixed?: boolean;
 
   /**
+   * Root element to render the overlay into. Defaults to `document.body`.
+   */
+  fixedRoot?: HTMLElement;
+
+  /**
    * The background color of the overlay. Defaults to `rgba(255, 255, 255, 0.7)`.
    */
   color?: string;
 }
 
 export function Overlay(props: Props) {
-  const { fixed, color, ...rest } = props;
+  const { fixed, color, fixedRoot, ...rest } = props;
 
   if (fixed) {
     return ReactDOM.createPortal(
       <Column {...rest} data-overlay />,
-      overlayRootEl
+      fixedRoot || document.body
     );
   } else {
     return <Column {...rest} data-overlay />;
