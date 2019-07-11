@@ -2,7 +2,7 @@
 
 exports[`Overlay Should match snapshot 1`] = `
 <div
-  class="sc-bwzfXH flyiBm sc-bdVaJa eUEwfn"
+  class="sc-bwzfXH jXHZxJ sc-bdVaJa eUEwfn"
   data-overlay="true"
 />
 `;
